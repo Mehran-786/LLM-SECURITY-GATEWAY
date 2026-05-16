@@ -1,0 +1,43 @@
+# ============================================================
+# .gitignore — LLM Security Gateway
+# ============================================================
+
+# --- Credentials (NEVER commit these) -----------------------
+.env
+
+# --- Python -------------------------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# --- Virtual environment ------------------------------------
+venv/
+.venv/
+env/
+ENV/
+
+# --- IDE / Editor -------------------------------------------
+.vscode/
+.idea/
+*.suo
+*.user
+
+# --- OS files -----------------------------------------------
+.DS_Store
+Thumbs.db
+
+# --- Logs & databases ---------------------------------------
+*.log
+*.sqlite3
+*.db
+
+# --- Test & coverage ----------------------------------------
+.pytest_cache/
+.coverage
+htmlcov/

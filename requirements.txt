@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+presidio-analyzer
+presidio-anonymizer
+pydantic
+openai
+deep-translator
+scikit-learn
+jinja2
+python-dotenv

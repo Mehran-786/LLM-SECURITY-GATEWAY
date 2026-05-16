@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Space Gateway</title>
+    <meta name="description" content="Enterprise-grade LLM Security Gateway — Multilingual threat detection, PII masking, and real-time AI protection.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+    <!-- ── Animated Star Field ── -->
+    <div class="starfield" id="starfield"></div>
+
+    <!-- ── Loading Screen ── -->
+    <div class="warp-loader" id="warpLoader">
+        <div class="warp-ring"></div>
+        <div class="warp-ring warp-ring-2"></div>
+        <div class="warp-ring warp-ring-3"></div>
+        <div class="warp-core">
+            <div class="electron-orbit">
+                <div class="electron"></div>
+            </div>
+            <div class="electron-orbit orbit-2">
+                <div class="electron e2"></div>
+            </div>
+            <div class="core-dot"></div>
+        </div>
+        <div class="warp-label">INITIALIZING SECURITY GATEWAY</div>
+        <div class="warp-sub">Calibrating threat detection systems...</div>
+    </div>
+
+    <!-- ── Header ── -->
+    <header class="header" role="banner">
+        <div class="header-left">
+            <!-- Galactic gateway logo (pure CSS) -->
+            <div class="logo-wrap">
+                <div class="logo-ring"></div>
+                <div class="logo-ring logo-ring-2"></div>
+                <div class="logo-core">🛡️</div>
+            </div>
+            <div class="header-text">
+                <span class="header-title">SECURE SPACE GATEWAY</span>
+                <span class="header-sub">Multilingual LLM Protection Layer</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <span class="header-badge">
+                <span class="badge-dot"></span>LIVE
+            </span>
+            <span class="header-badge enterprise-badge">ENTERPRISE</span>
+        </div>
+    </header>
+
+    <!-- ── Chat Window ── -->
+    <main class="chat-container" id="chatContainer" role="main">
+
+        <!-- Welcome message -->
+        <div class="msg-row ai-row">
+            <div class="avatar ai-avatar">
+                <span class="avatar-icon">AI</span>
+                <span class="avatar-glow"></span>
+            </div>
+            <div class="bubble ai-bubble">
+                <div class="bubble-meta">Secure Gateway • Now</div>
+                🌌 Welcome to the <strong>Secure Space Gateway</strong>. I am protected by a multilingual hybrid security pipeline — combining rule-based filters, semantic ML detection, and Microsoft Presidio PII masking. Every prompt you send travels through the security layer first. Try sending anything!
+            </div>
+        </div>
+
+        <!-- Typing indicator (hidden by default) -->
+        <div class="typing-row" id="typingRow">
+            <div class="avatar ai-avatar">
+                <span class="avatar-icon">AI</span>
+                <span class="avatar-glow"></span>
+            </div>
+            <div class="typing-bubble">
+                <span class="typing-label">Gateway processing</span>
+                <div class="typing-dots">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ── Input Area ── -->
+    <div class="input-outer">
+        <div class="input-wrap">
+            <div class="input-prefix">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="cmd-icon">
+                    <polyline points="4 17 10 11 4 5"></polyline>
+                    <line x1="12" y1="19" x2="20" y2="19"></line>
+                </svg>
+            </div>
+            <textarea
+                id="userInput"
+                placeholder="Transmit to Gateway..."
+                rows="1"
+                onkeydown="handleKey(event)"
+                oninput="autoResize(this)"
+            ></textarea>
+            <button id="sendBtn" onclick="sendMessage()" title="Transmit message" aria-label="Send">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="send-icon">
+                    <path d="M22 2L11 13M22 2L15 22 11 13 2 9l20-7z"/>
+                </svg>
+            </button>
+        </div>
+        <div class="input-footer">
+            <span class="input-footer-text">⚡ Powered by <strong>Groq llama-3.1-8b-instant</strong> via Secure Gateway &nbsp;·&nbsp; Press <kbd>Enter</kbd> to transmit &nbsp;·&nbsp; <kbd>Shift+Enter</kbd> for newline</span>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+
+    <!-- ── Star field generator ── -->
+    <script>
+    (function(){
+        const sf = document.getElementById('starfield');
+        for(let i=0;i<160;i++){
+            const s=document.createElement('div');
+            s.className='star';
+            s.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;width:${Math.random()*2.5+0.5}px;height:${s.style.width};animation-delay:${Math.random()*6}s;animation-duration:${Math.random()*4+3}s;`;
+            sf.appendChild(s);
+        }
+        // Hide loader after 2.2s
+        setTimeout(()=>{
+            const l=document.getElementById('warpLoader');
+            l.style.opacity='0';
+            l.style.transition='opacity 0.6s ease';
+            setTimeout(()=>l.style.display='none',650);
+        },2200);
+    })();
+    </script>
+
+</body>
+</html>
